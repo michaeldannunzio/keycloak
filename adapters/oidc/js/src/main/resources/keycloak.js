@@ -232,7 +232,11 @@
 
                 var checkSsoSilently = function() {
                     var ifrm = document.createElement("iframe");
-                    var src = kc.createLoginUrl({prompt: 'none', redirectUri: kc.silentCheckSsoRedirectUri});
+                    var src = kc.createLoginUrl({
+                        prompt: 'none',
+                        redirectUri: kc.silentCheckSsoRedirectUri,
+                        scope: 'offline_access'
+                    });
                     ifrm.setAttribute("src", src);
                     ifrm.setAttribute("title", "keycloak-silent-check-sso");
                     ifrm.style.display = "none";
